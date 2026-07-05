@@ -43,6 +43,25 @@ class LinkedList{
         }
     }
 
+    //Method to insert element at given index
+    public void addAtIndex(int element,int index) {
+        Node newNode = new Node(element);
+        if (head == null){
+            head = newNode;
+        }
+        else{
+            int count = 1;
+            Node curr = head;
+            while(count < index){
+                curr = curr.next;
+                count++;
+            }
+            newNode.next = curr.next;
+            curr.next = newNode;
+
+        }
+    }
+
     //Method to print the list
     public void display(){
         Node curr = head;
@@ -65,10 +84,9 @@ class LinkedList{
 public class LinkedListMain {
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
-        ll.addLast(56);
-        ll.addLast(30);
-        ll.addLast(70
-        );
+        ll.addFirst(56);
+        ll.addLast(70);
+        ll.addAtIndex(30,1);
         ll.display();
     }
 }
