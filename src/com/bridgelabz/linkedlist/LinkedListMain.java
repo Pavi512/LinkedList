@@ -62,6 +62,20 @@ class LinkedList{
         }
     }
 
+    //Method to remove the first element and return it.
+    public int pop(){
+        Node curr = head;
+        if(head == null) {
+            System.out.println("List is Empty");
+            return -1;
+        }
+        else{
+            int data = head.data;
+            head = head.next;
+            return data;
+        }
+    }
+
     //Method to print the list
     public void display(){
         Node curr = head;
@@ -84,9 +98,10 @@ class LinkedList{
 public class LinkedListMain {
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
-        ll.addFirst(56);
+        ll.addLast(56);
+        ll.addLast(30);
         ll.addLast(70);
-        ll.addAtIndex(30,1);
+        int res = ll.pop();
         ll.display();
     }
 }
