@@ -76,6 +76,28 @@ class LinkedList{
         }
     }
 
+    //Method to remove the last element
+    public int popLast(){
+        Node curr = head;
+        if(head == null) {
+            System.out.println("List is Empty");
+            return -1;
+        }
+        else if (head.next == null) {
+            int data = head.data;
+            head = null;
+            return data;
+        }
+        else{
+            while(curr.next.next != null){
+                curr=curr.next;
+            }
+            int temp = curr.next.data;
+            curr.next = null;
+            return temp;
+        }
+    }
+
     //Method to print the list
     public void display(){
         Node curr = head;
@@ -101,7 +123,7 @@ public class LinkedListMain {
         ll.addLast(56);
         ll.addLast(30);
         ll.addLast(70);
-        int res = ll.pop();
+        int res = ll.popLast();
         ll.display();
     }
 }
