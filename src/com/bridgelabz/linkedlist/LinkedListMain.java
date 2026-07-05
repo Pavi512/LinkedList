@@ -98,6 +98,19 @@ class LinkedList{
         }
     }
 
+    // Method to search an element
+    public boolean search(int key) {
+        Node curr = head;
+
+        while (curr != null) {
+            if (curr.data == key) {
+                return true;
+            }
+            curr = curr.next;
+        }
+        return false;
+    }
+
     //Method to print the list
     public void display(){
         Node curr = head;
@@ -123,7 +136,7 @@ public class LinkedListMain {
         ll.addLast(56);
         ll.addLast(30);
         ll.addLast(70);
-        int res = ll.popLast();
-        ll.display();
+        System.out.println(ll.search(30));
+//        ll.display();
     }
 }
