@@ -130,6 +130,41 @@ class LinkedList{
 
     }
 
+    // Method to delete a given element
+    public int deleteTheElement(int ele) {
+        if (head == null) {
+            System.out.println("List is Empty");
+            return 0;
+        }
+        if (head.data == ele) {
+            head = head.next;
+            return size();
+        }
+
+        Node curr = head;
+        while (curr.next != null && curr.next.data != ele) {
+            curr = curr.next;
+        }
+
+        if (curr.next == null) {
+            System.out.println("Element not found");
+            return size();
+        }
+        curr.next = curr.next.next;
+        return size();
+    }
+
+    //Method to return size of the list
+    public int size(){
+        Node curr = head;
+        int size = 1;
+        while(curr.next != null){
+            size++;
+            curr = curr.next;
+        }
+        return size;
+    }
+
     //Method to print the list
     public void display(){
         Node curr = head;
@@ -156,6 +191,8 @@ public class LinkedListMain {
         ll.addLast(30);
         ll.addLast(70);
         ll.addAfterElement(30,40);
-        ll.display();
+        System.out.println("Before deleting list of the list is : " + ll.size());
+        System.out.println("After deleting list of the list is : " + ll.deleteTheElement(40));
+//        ll.display();
     }
 }
