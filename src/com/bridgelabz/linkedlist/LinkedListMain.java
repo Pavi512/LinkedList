@@ -111,6 +111,25 @@ class LinkedList{
         return false;
     }
 
+    //Method to insert an element after another element
+    public void addAfterElement(int element,int data){
+        Node curr = head;
+
+        while(curr != null && curr.data != element){
+            curr = curr.next;
+        }
+
+        if(curr == null){
+            System.out.println("Element not found");
+            return;
+        }
+
+        Node newNode = new Node(data);
+        newNode.next = curr.next;
+        curr.next = newNode;
+
+    }
+
     //Method to print the list
     public void display(){
         Node curr = head;
@@ -136,7 +155,7 @@ public class LinkedListMain {
         ll.addLast(56);
         ll.addLast(30);
         ll.addLast(70);
-        System.out.println(ll.search(30));
-//        ll.display();
+        ll.addAfterElement(30,40);
+        ll.display();
     }
 }
