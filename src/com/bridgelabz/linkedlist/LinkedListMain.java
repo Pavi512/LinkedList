@@ -29,6 +29,20 @@ class LinkedList{
         }
     }
 
+    //Method to add element at last of the list
+    public void addLast(int element){
+        Node newNode = new Node(element);
+        if(head == null)
+            head = newNode;
+        else{
+            Node curr = head;
+            while(curr.next != null){
+                curr = curr.next;
+            }
+            curr.next = newNode;
+        }
+    }
+
     //Method to print the list
     public void display(){
         Node curr = head;
@@ -51,9 +65,9 @@ class LinkedList{
 public class LinkedListMain {
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
-        ll.addFirst(70);
-        ll.addFirst(30);
-        ll.addFirst(56);
+        ll.addLast(56);
+        ll.addLast(30);
+        ll.addLast(70);
         ll.display();
     }
 }
